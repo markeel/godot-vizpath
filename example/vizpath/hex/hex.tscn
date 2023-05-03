@@ -54,6 +54,7 @@ path_head = ExtResource("4_g20v5")
 path_tail = ExtResource("5_ty3ba")
 
 [node name="map" type="Node3D" parent="."]
+visible = false
 
 [node name="hex1" type="MeshInstance3D" parent="map"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4682, 0)
@@ -129,11 +130,13 @@ skeleton = NodePath("../..")
 
 [node name="piece1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.06485, 0, 0, 0, 1.06485, 1.72758, -0.95635, 0.0769689)
+visible = false
 mesh = ExtResource("5_w2ftf")
 metadata/_edit_group_ = true
 
 [node name="piece2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.06485, 0, 0, 0, 1.06485, -0.0146859, -0.95635, -2.9499)
+visible = false
 mesh = ExtResource("5_w2ftf")
 surface_material_override/0 = SubResource("StandardMaterial3D_4bfck")
 metadata/_edit_group_ = true
