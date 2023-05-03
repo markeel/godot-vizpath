@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_1yvne"]
 [ext_resource type="Script" path="res://addons/vizpath/resources/spot.gd" id="2_6erg5"]
-[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/common/materials/move.tres" id="3_1vu2e"]
+[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/vizpath/common/materials/move.tres" id="3_1vu2e"]
 [ext_resource type="Resource" uid="uid://ca6a3fjxcmbhc" path="res://addons/vizpath/resources/viz_head.tres" id="4_g20v5"]
-[ext_resource type="ArrayMesh" uid="uid://burem3qbp7oti" path="res://example/common/mesh/hex-tile.obj" id="4_kooas"]
+[ext_resource type="ArrayMesh" uid="uid://burem3qbp7oti" path="res://example/vizpath/common/mesh/hex-tile.obj" id="4_kooas"]
 [ext_resource type="Resource" uid="uid://dnaxoh1d4t82c" path="res://addons/vizpath/resources/viz_tail.tres" id="5_ty3ba"]
-[ext_resource type="ArrayMesh" uid="uid://brfhulgwa6r66" path="res://example/common/mesh/piece.obj" id="5_w2ftf"]
+[ext_resource type="ArrayMesh" uid="uid://brfhulgwa6r66" path="res://example/vizpath/common/mesh/piece.obj" id="5_w2ftf"]
 
 [sub_resource type="Resource" id="Resource_qgkxi"]
 script = ExtResource("2_6erg5")
