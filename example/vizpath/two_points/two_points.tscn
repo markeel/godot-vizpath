@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_2ehhl"]
 [ext_resource type="Script" path="res://addons/vizpath/resources/spot.gd" id="2_7kv0e"]
-[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/common/materials/move.tres" id="3_pq303"]
+[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/vizpath/common/materials/move.tres" id="3_pq303"]
 [ext_resource type="Resource" uid="uid://ca6a3fjxcmbhc" path="res://addons/vizpath/resources/viz_head.tres" id="4_exeba"]
 [ext_resource type="Resource" uid="uid://dnaxoh1d4t82c" path="res://addons/vizpath/resources/viz_tail.tres" id="5_76glu"]
 

@@ -123,6 +123,9 @@ func _ready():
 func _get_configuration_warnings():
 	return PackedStringArray(_errors)
 
+func get_errors() -> Array[String]:
+	return _errors
+
 func _rebuild():
 	_errors = []
 	if _mesh_instance == null:
