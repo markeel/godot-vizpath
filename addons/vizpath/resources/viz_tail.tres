@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="VizTail" load_steps=2 format=3 uid="uid://dnaxoh1d4t82c"]
+
+[ext_resource type="Script" path="res://addons/vizpath/resources/viz_tail.gd" id="1_npnpb"]
+
+[resource]
+script = ExtResource("1_npnpb")
+num_segs = 12

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmokry5wki4la"]
+
+[ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_tdmdc"]
+[ext_resource type="Script" path="res://addons/vizpath/resources/spot.gd" id="2_ed7de"]
+[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/common/materials/move.tres" id="3_jou7f"]
+
+[sub_resource type="Resource" id="Resource_lat08"]
+script = ExtResource("2_ed7de")
+point = Vector3(-0.019576, 0.330117, 0.308354)
+normal = Vector3(-0.883153, 0, 0.469085)
+
+[sub_resource type="Resource" id="Resource_aq3dt"]
+script = ExtResource("2_ed7de")
+point = Vector3(0.492358, 0.739297, 0.295264)
+normal = Vector3(0.356353, 0.164684, 0.919724)
+
+[node name="mid_bend" type="Node3D"]
+
+[node name="path2" type="Node3D" parent="."]
+transform = Transform3D(0.99644, 0, 0.0843039, 0, 1, 0, -0.0843039, 0, 0.99644, 0.293748, 0, 0)
+script = ExtResource("1_tdmdc")
+spots = Array[ExtResource("2_ed7de")]([SubResource("Resource_lat08"), SubResource("Resource_aq3dt")])
+path_width = 0.05
+inner_curve_radius = 0.05
+path_mat = ExtResource("3_jou7f")
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.828627, 0.559801, 0, -0.559801, 0.828627, 0, 1.47828, 1.16019)
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(0.91249, -0.154231, 0.378914, 0, 0.926213, 0.377, -0.4091, -0.344008, 0.84516, 0.951467, 0.854797, 0.868185)

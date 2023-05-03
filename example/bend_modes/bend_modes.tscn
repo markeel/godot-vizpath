@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://cjl5544idple4"]
+
+[ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_jrlnd"]
+[ext_resource type="Script" path="res://addons/vizpath/resources/spot.gd" id="2_4hfv6"]
+[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/common/materials/move.tres" id="3_hf8la"]
+
+[sub_resource type="Resource" id="Resource_s8kkd"]
+script = ExtResource("2_4hfv6")
+point = Vector3(0, 0, 0)
+normal = Vector3(0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_7ts2q"]
+script = ExtResource("2_4hfv6")
+point = Vector3(-0.121931, 0.5, -0.144112)
+normal = Vector3(0, 0.397131, 0.917762)
+
+[sub_resource type="Resource" id="Resource_gt1gn"]
+script = ExtResource("2_4hfv6")
+point = Vector3(0, 0, 0)
+normal = Vector3(0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_g7sew"]
+script = ExtResource("2_4hfv6")
+point = Vector3(0.104292, 0.5, -0.144112)
+normal = Vector3(0, 0.369583, 0.929198)
+
+[sub_resource type="Resource" id="Resource_in6um"]
+script = ExtResource("2_4hfv6")
+point = Vector3(0, 0, 0)
+normal = Vector3(0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_prkqv"]
+script = ExtResource("2_4hfv6")
+point = Vector3(0.138177, 0.5, 0.0752829)
+normal = Vector3(0, -0.390349, 0.920667)
+
+[sub_resource type="Resource" id="Resource_gsc4k"]
+script = ExtResource("2_4hfv6")
+point = Vector3(-0.00201809, 0, 0)
+normal = Vector3(0.230778, 0.15166, 0.961114)
+
+[sub_resource type="Resource" id="Resource_jodll"]
+script = ExtResource("2_4hfv6")
+point = Vector3(-0.104844, 0.5, 0.0752829)
+normal = Vector3(0, -0.629649, 0.776879)
+
+[node name="bend_modes" type="Node3D"]
+
+[node name="pos_bend_pos_curve" type="Node3D" parent="."]
+script = ExtResource("1_jrlnd")
+spots = Array[ExtResource("2_4hfv6")]([SubResource("Resource_s8kkd"), SubResource("Resource_7ts2q")])
+path_mat = ExtResource("3_hf8la")
+
+[node name="neg_bend_pos_curve" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.215276, 0, 0)
+script = ExtResource("1_jrlnd")
+spots = Array[ExtResource("2_4hfv6")]([SubResource("Resource_gt1gn"), SubResource("Resource_g7sew")])
+path_mat = ExtResource("3_hf8la")
+
+[node name="pos_bend_neg_curve" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444013, 0, 0)
+script = ExtResource("1_jrlnd")
+spots = Array[ExtResource("2_4hfv6")]([SubResource("Resource_in6um"), SubResource("Resource_prkqv")])
+path_mat = ExtResource("3_hf8la")
+
+[node name="neg_bend_neg_curve" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.852877, 0, 0)
+script = ExtResource("1_jrlnd")
+spots = Array[ExtResource("2_4hfv6")]([SubResource("Resource_gsc4k"), SubResource("Resource_jodll")])
+path_mat = ExtResource("3_hf8la")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(0.981132, -0.0697522, 0.180319, 0, 0.932653, 0.360776, -0.193339, -0.353969, 0.915055, 0.718682, 0.603321, 0.999084)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.74374, 0.668469, 0, -0.668469, 0.74374, 0, 1.44215, 1.63761)

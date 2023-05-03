@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b01j6blghusie"]
+
+[ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_7md1l"]
+
+[node name="visualized_path" type="Node3D"]
+script = ExtResource("1_7md1l")
+bend_sharpness = 0.0

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgalf6c17i3u5"]
+
+[ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_bfmfh"]
+[ext_resource type="Script" path="res://addons/vizpath/resources/spot.gd" id="2_rhyv7"]
+[ext_resource type="Material" uid="uid://bb6vecpbvsco2" path="res://example/common/materials/green.tres" id="3_0i5gn"]
+[ext_resource type="Resource" uid="uid://ca6a3fjxcmbhc" path="res://addons/vizpath/resources/viz_head.tres" id="4_iru8o"]
+
+[sub_resource type="Resource" id="Resource_fbtus"]
+script = ExtResource("2_rhyv7")
+point = Vector3(0, 0.094, -0.171)
+normal = Vector3(0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_o2yh3"]
+script = ExtResource("2_rhyv7")
+point = Vector3(0.271296, 0.508832, -0.373052)
+normal = Vector3(0.564135, -0.105104, 0.818965)
+
+[node name="bend_modes" type="Node3D"]
+
+[node name="one_leg2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116525, -0.0119494, 0.00156734)
+script = ExtResource("1_bfmfh")
+spots = Array[ExtResource("2_rhyv7")]([SubResource("Resource_fbtus"), SubResource("Resource_o2yh3")])
+path_width = 0.08
+bend_lip = 0.01
+path_mat = ExtResource("3_0i5gn")
+path_head = ExtResource("4_iru8o")
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(0.866918, -0.0684906, 0.493722, 0, 0.990515, 0.137407, -0.49845, -0.119121, 0.858696, 0.397118, 0.326159, 0.203121)
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.74374, 0.668469, 0, -0.668469, 0.74374, 0, 1.44215, 1.63761)

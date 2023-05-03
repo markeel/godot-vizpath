@@ -1,0 +1,139 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7ir0cihwsbdf"]
+
+[ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_1yvne"]
+[ext_resource type="Script" path="res://addons/vizpath/resources/spot.gd" id="2_6erg5"]
+[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/common/materials/move.tres" id="3_1vu2e"]
+[ext_resource type="Resource" uid="uid://ca6a3fjxcmbhc" path="res://addons/vizpath/resources/viz_head.tres" id="4_g20v5"]
+[ext_resource type="ArrayMesh" uid="uid://burem3qbp7oti" path="res://example/common/mesh/hex-tile.obj" id="4_kooas"]
+[ext_resource type="Resource" uid="uid://dnaxoh1d4t82c" path="res://addons/vizpath/resources/viz_tail.tres" id="5_ty3ba"]
+[ext_resource type="ArrayMesh" uid="uid://brfhulgwa6r66" path="res://example/common/mesh/piece.obj" id="5_w2ftf"]
+
+[sub_resource type="Resource" id="Resource_qgkxi"]
+script = ExtResource("2_6erg5")
+point = Vector3(0.12001, 0, 1.24569)
+normal = Vector3(0, 1, 0)
+
+[sub_resource type="Resource" id="Resource_s7b42"]
+script = ExtResource("2_6erg5")
+point = Vector3(1.0056, 0, -0.279287)
+normal = Vector3(0, 1, 0)
+
+[sub_resource type="Resource" id="Resource_lfmsk"]
+script = ExtResource("2_6erg5")
+point = Vector3(0.110618, 0.512924, -1.88396)
+normal = Vector3(0, 1, 0)
+
+[sub_resource type="Resource" id="Resource_8kju7"]
+script = ExtResource("2_6erg5")
+point = Vector3(-1.47883, 0.0551448, -1.76383)
+normal = Vector3(0, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tygq4"]
+albedo_color = Color(0.678431, 0.486275, 0.27451, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lbs8"]
+albedo_color = Color(0.670588, 0.658824, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bfck"]
+
+[node name="hex" type="Node3D"]
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(0.992762, -0.0669817, 0.0996872, 0, 0.830033, 0.557714, -0.1201, -0.553677, 0.824025, 1.35237, 2.1656, 3.18067)
+
+[node name="light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.840718, 0.541473, 0, -0.541473, 0.840718, 0, 2.14547, 0)
+
+[node name="path" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63023, -0.203269, -1.17328)
+script = ExtResource("1_1yvne")
+spots = Array[ExtResource("2_6erg5")]([SubResource("Resource_qgkxi"), SubResource("Resource_s7b42"), SubResource("Resource_lfmsk"), SubResource("Resource_8kju7")])
+path_width = 0.3
+path_mat = ExtResource("3_1vu2e")
+path_head = ExtResource("4_g20v5")
+path_tail = ExtResource("5_ty3ba")
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="hex1" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4682, 0)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex2" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72963, -1.4682, 0)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex3" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.835999, -1.4682, -1.45365)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex4" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56511, -1.4682, -1.45365)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex5" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.933231, -1.4682, -1.46365)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex6" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0469695, -1.4682, -2.96501)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex7" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71215, -1.20709, -2.97501)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tygq4")
+
+[node name="hex8" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75632, -1.4682, -2.96501)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex9" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.48265, -1.4682, -2.96501)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex10" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.846, -1.4682, -4.47957)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex11" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59512, -1.4682, -4.50046)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex12" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.903228, -1.33035, -4.49046)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1lbs8")
+
+[node name="hex13" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0200016, -1.4682, -6.00538)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="hex14" type="MeshInstance3D" parent="map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71963, -1.4682, -6.00538)
+mesh = ExtResource("4_kooas")
+skeleton = NodePath("../..")
+
+[node name="piece1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.06485, 0, 0, 0, 1.06485, 1.72758, -0.95635, 0.0769689)
+mesh = ExtResource("5_w2ftf")
+metadata/_edit_group_ = true
+
+[node name="piece2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.06485, 0, 0, 0, 1.06485, -0.0146859, -0.95635, -2.9499)
+mesh = ExtResource("5_w2ftf")
+surface_material_override/0 = SubResource("StandardMaterial3D_4bfck")
+metadata/_edit_group_ = true

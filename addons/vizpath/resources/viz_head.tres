@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="VizHead" load_steps=2 format=3 uid="uid://ca6a3fjxcmbhc"]
+
+[ext_resource type="Script" path="res://addons/vizpath/resources/viz_head.gd" id="1_7yqvb"]
+
+[resource]
+script = ExtResource("1_7yqvb")
+width_factor = 2.0
+length_factor = 1.2
