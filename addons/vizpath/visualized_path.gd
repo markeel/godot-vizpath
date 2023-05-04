@@ -5,7 +5,7 @@
 ## of spots which define the local object space positions and
 ## normals for the path at that point.
 ##
-## The spots array can be defined programatically such as by 
+## The spots array can be defined programmatically such as by 
 ## user action (such as clicking) or defined in the editor using
 ## the VizPath gizmo.
 ##
@@ -34,23 +34,23 @@ signal changed_layout
 		_rebuild()
 
 ## The path_width defines the width of the path, which indirectly
-## determines how tight the path can turn at a midpoint spot
+## determines how tight the path can turn at a midpoint spot.
 @export_range(0.005, 100, 0.001) var path_width := 0.1 :
 	set(w):
 		path_width = w
 		_rebuild()
 
 ## The inner_curve_radius defines how tight a turn can be made
-## at a midpoint spot within the path
+## at a midpoint spot within the path.
 @export_range(0.005, 100, 0.001) var inner_curve_radius := 0.1 :
 	set(r):
 		inner_curve_radius = r
 		_rebuild()
 
 ## The num_curve_segs defines how many points will be defined in the
-## arc that are used to create a turn.  More segments will make
+## arc that are used to create a turn.  More segments will
 ## make a smoother UV mapping and therefore the display of associated material
-## more accurate
+## more accurate.
 @export_range(4, 128) var num_curve_segs := 32 :
 	set(r):
 		num_curve_segs = r
@@ -63,17 +63,17 @@ signal changed_layout
 		bend_segs = r
 		_rebuild()
 
-## The bend_lip defines how long the bend in a path when transitioning between
-## two spots with normals not in the same plane will be.  Making this a smaller
-## value will create a smaller bend
+## The bend_lip defines the distance that a segment extends from the intersection
+## of the planes defined by the beginning and ending normals when those normals 
+## are not in the same plane.  Making this a smaller value will make the 
+## segment flatter for more of its length.
 @export_range(0.005, 100, 0.001) var bend_lip := 0.1 :
 	set(r):
 		bend_lip = r
 		_rebuild()
 
-## The bend_sharpness defines how sharp the bend in a path when transitioning
-## between two spots with normals not in the same plane will be.  Making this
-## smaller will result in a tighter bend
+## The bend_sharpness defines how sharp the bend in a path.  Making this
+## smaller will result in a tighter bend.
 @export var bend_sharpness := 1.0 :
 	set(r):
 		bend_sharpness = r
@@ -81,9 +81,9 @@ signal changed_layout
 
 ## The path_mat is the material that will be applied to the underlying mesh
 ## that displays the path.  The initial spot in the path will have texture coordinates
-## that start with U=0 and going to a value based on the actual length of the path.
-## The V will range between 0 at the left side of the path, and 1 at the right side
-## of the path (which is path_width) long.
+## that start with U equal to 0.0 and ending at the value calculated as the actual length of the path
+## in local space.  The V will range between 0.0 at the left side of the path, and 1.0 at the 
+## right side of the path.
 @export var path_mat : Material :
 	set(m):
 		path_mat = m
@@ -91,7 +91,7 @@ signal changed_layout
 
 ## The path_head is a resource (optional) that defines the end of the path by 
 ## providing an "apply" method.  The provided [VizHead] resource is an example
-## that draws an arrow head on the end
+## that draws an arrow head on the end.
 @export var path_head : VizHead :
 	set(m):
 		path_head = m
@@ -100,7 +100,7 @@ signal changed_layout
 
 ## The path_tail is a resource (optional) that defines the start of the path by 
 ## providing an "apply" method.  The provided [VizTail] resource is an example
-## that draws an rounded cap on the end
+## that draws a rounded cap on the end.
 @export var path_tail : VizTail :
 	set(m):
 		path_tail = m

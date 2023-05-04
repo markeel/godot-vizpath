@@ -20,13 +20,13 @@ platform.
 
 To install it from the Godot Asset Library, select: TBD
 
-There are 3 main directories
+There are 3 main directories:
 - addons/vizpath
 - examples/vizpath
 - source/vizpath
 
 When loading as an asset in another project (as opposed to working on this asset) the following files
-should NOT be imported, they will likely conflict with your project
+should NOT be imported, they will likely conflict with your project:
 - README.md
 - LICENSE
 - icon.svg
@@ -56,7 +56,7 @@ these errors a call to get_errors() can be made.
 
 Based on the properties and how close the spots are allowed to be, you can guarantee that the path will
 always be constructed.  If you allow unrestrained movement of the spots and the normals, you will
-need to report the error (which is what is done when using the Godot Editor)
+need to report the error (which is what is done when using the Godot Editor).
 
 ### Directly in the editor
 
@@ -68,7 +68,7 @@ a subgizmo.
 
 To use the subgizmo, click on the VisualizedPath and in the 3D view click on the yellow cone for
 one of the spots.  The manipulation gizmo changes to that spot and then it can be moved (changing
-the position of the spot), or rotated (changing the normal at that spot)
+the position of the spot), or rotated (changing the normal at that spot).
 
 ## Examples
 
@@ -77,5 +77,5 @@ delete this directory for your project.
 
 ## Source
 
-Blender and Inkscape files used to create the meshes and the icon are included in the "source/vizpath"
-directory, which can also be removed without impacting its usage.
+The Blender and Inkscape files used to create the meshes and the icon are included in the "source/vizpath"
+directory, which can also be removed without impacting this asset's use.

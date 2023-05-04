@@ -3,12 +3,12 @@ extends Resource
 class_name VisualizationSpot
 
 ## The VisualizationSpot class is a resource that allows the definition
-## of a spot for a VisualizedPath
+## of a spot for a VisualizedPath.
 ##
 ## A VisualizationSpot contains a point (local space) and a normal (local space)
-## that identifies where the path starts, ends, or turns
+## that identifies where the path starts, ends, or turns.
 
-## The point in local space where the path originates, terminates, or turns at
+## The point in local space where the path originates, terminates, or turns
 @export var point : Vector3 :
 	set(p):
 		point = p
