@@ -18,15 +18,22 @@ decoration.
 The plugin is written in 100% GDScript so no compilation is required and should work on any
 platform. 
 
-To install it from the Godot Asset Library, select: TBD
+To install it from the Godot Asset Library, within your project:
+- Select the AssetLib tab
+- Search for "3D Visualized Path"
+- Click Download button
+- After the dialog is presented with files, at least include the "addons" directory
+- From Project -> Project Settings...
+- Go to Plugins tab and enable vizpath plugin (not doing this will not let the path be selectable
+  in the 3D view and will not present the spot control points
 
-There are 3 main directories:
+There are 3 main directories
 - addons/vizpath
 - examples/vizpath
 - source/vizpath
 
 When loading as an asset in another project (as opposed to working on this asset) the following files
-should NOT be imported, they will likely conflict with your project:
+should NOT be imported, they will likely conflict with your project
 - README.md
 - LICENSE
 - icon.svg
@@ -56,19 +63,21 @@ these errors a call to get_errors() can be made.
 
 Based on the properties and how close the spots are allowed to be, you can guarantee that the path will
 always be constructed.  If you allow unrestrained movement of the spots and the normals, you will
-need to report the error (which is what is done when using the Godot Editor).
+need to report the error (which is what is done when using the Godot Editor)
 
 ### Directly in the editor
 
-The VisualizedPath class supports editing all the properties through the Inspector and updating
+The VisualizedPath class will appear in the list of nodes when adding a node to a scene.  The VisualizedPath
+class supports editing all the properties through the Inspector and updating
 the view immediately.  It also allows a VisualizationSpot to be moved and its normal rotated using
-a subgizmo.
+a subgizmo.  At least 2 spots must be added.  If the path is not valid, a warning will be presented
+on the VisualizedPath instance.
 
 ### Using subgizmo
 
 To use the subgizmo, click on the VisualizedPath and in the 3D view click on the yellow cone for
 one of the spots.  The manipulation gizmo changes to that spot and then it can be moved (changing
-the position of the spot), or rotated (changing the normal at that spot).
+the position of the spot), or rotated (changing the normal at that spot)
 
 ## Examples
 
@@ -77,5 +86,5 @@ delete this directory for your project.
 
 ## Source
 
-The Blender and Inkscape files used to create the meshes and the icon are included in the "source/vizpath"
-directory, which can also be removed without impacting this asset's use.
+Blender and Inkscape files used to create the meshes and the icon are included in the "source/vizpath"
+directory, which can also be removed without impacting its usage.

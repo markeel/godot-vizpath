@@ -18,7 +18,14 @@ decoration.
 The plugin is written in 100% GDScript so no compilation is required and should work on any
 platform. 
 
-To install it from the Godot Asset Library, select: TBD
+To install it from the Godot Asset Library, within your project:
+- Select the AssetLib tab
+- Search for "3D Visualized Path"
+- Click Download button
+- After the dialog is presented with files, at least include the "addons" directory
+- From Project -> Project Settings...
+- Go to Plugins tab and enable vizpath plugin (not doing this will not let the path be selectable
+  in the 3D view and will not present the spot control points
 
 There are 3 main directories
 - addons/vizpath
@@ -60,9 +67,11 @@ need to report the error (which is what is done when using the Godot Editor)
 
 ### Directly in the editor
 
-The VisualizedPath class supports editing all the properties through the Inspector and updating
+The VisualizedPath class will appear in the list of nodes when adding a node to a scene.  The VisualizedPath
+class supports editing all the properties through the Inspector and updating
 the view immediately.  It also allows a VisualizationSpot to be moved and its normal rotated using
-a subgizmo.
+a subgizmo.  At least 2 spots must be added.  If the path is not valid, a warning will be presented
+on the VisualizedPath instance.
 
 ### Using subgizmo
 
