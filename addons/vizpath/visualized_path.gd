@@ -107,6 +107,11 @@ signal changed_layout
 		path_tail.changed.connect(_rebuild)
 		_rebuild()
 
+@export var suppress_warnings := false :
+	set(s):
+		suppress_warnings = s
+		_rebuild()
+
 var _mesh_instance : MeshInstance3D
 var _errors : Array[String]
 
@@ -121,7 +126,9 @@ func _ready():
 	_rebuild()
 
 func _get_configuration_warnings():
-	return PackedStringArray(_errors)
+	if not suppress_warnings:
+		return PackedStringArray(_errors)
+	return PackedStringArray()
 
 func get_errors() -> Array[String]:
 	return _errors
@@ -149,15 +156,17 @@ func _rebuild():
 		if segments[idx-1].is_invalid():
 			_errors.push_back(segments[idx-1].get_error())
 			break
+		if idx == 1:
+			u = _add_tail(segments[idx-1], u)
 		u = segments[idx-1].update_mesh(_mesh_instance, u, bend_segs, bend_sharpness, path_mat)
 		u = midpoint.update_mesh(_mesh_instance, u, num_curve_segs, path_mat)
 	if _errors.size() == 0:
 		if segments[segments.size()-1].is_invalid():
 			_errors.push_back(segments[segments.size()-1].get_error())
 		else:
-			u = segments[segments.size()-1].update_mesh(_mesh_instance, u, bend_segs, bend_sharpness, path_mat)
+			if segments.size() == 1:
+				u = _add_tail(segments[0], u)
 			_add_head(segments[segments.size()-1], u)
-			_add_tail(segments[0], 0.0)
 	update_configuration_warnings()
 	changed_layout.emit()
 
@@ -169,9 +178,14 @@ func _add_head(head : VizSegment, u : float):
 		var right := end + binormal * path_width / 2.0
 		var normal := head.get_end().normal
 		var direction := head.get_end_ray()
-		path_head.apply(_mesh_instance, u, left, right, normal, direction, path_mat)
+		var offset := path_head.get_offset(left, right, normal, direction)
+		head.adjust_end(offset)
+		u = head.update_mesh(_mesh_instance, u, bend_segs, bend_sharpness, path_mat)
+		path_head.apply(_mesh_instance, u, left - direction * offset, right - direction * offset, normal, direction, path_mat)
+	else:
+		head.update_mesh(_mesh_instance, u, bend_segs, bend_sharpness, path_mat)
 
-func _add_tail(tail : VizSegment, u : float):
+func _add_tail(tail : VizSegment, u : float) -> float:
 	if path_tail != null:
 		var begin := tail.get_begin().point
 		var binormal := tail.get_begin_binormal()
@@ -179,4 +193,8 @@ func _add_tail(tail : VizSegment, u : float):
 		var right := begin + binormal * path_width / 2.0
 		var normal := tail.get_begin().normal
 		var direction := tail.get_begin_ray()
-		path_tail.apply(_mesh_instance, u, left, right, normal, direction, path_mat)
+		var offset := path_tail.get_offset(left, right, normal, direction)
+		tail.adjust_begin(offset)
+		path_tail.apply(_mesh_instance, u, left - direction * offset, right - direction * offset, normal, direction, path_mat)
+		return u + offset
+	return u

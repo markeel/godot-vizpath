@@ -24,6 +24,23 @@ class_name VizHead
 		length_factor = l
 		emit_changed()
 
+## The get_offset function will be called to shift the end of the last 
+## segment to accomodate the head mesh
+##
+## This class can be overridden to provide a custom head to the path
+## by defining a resource that has an apply method with the following
+## definition:
+##
+## The [code]left[/code] and [code]right[/code] positions at the end of the path, where the 
+## V texture coordinate is 0.0 for [code]left[/code] and 1.0 for [code]right[/code].  
+## The [code]normal[/code] and the [code]direction[/code] define the position of the face and the 
+## direction that the path is going.
+func get_offset(left : Vector3, right : Vector3, normal : Vector3, direction : Vector3) -> float:
+	var segment := right - left
+	var segment_len := segment.length()
+	var arrow_point_len := segment_len * length_factor
+	return arrow_point_len
+
 ## The apply function will be called when the path 
 ## mesh is created.
 ##

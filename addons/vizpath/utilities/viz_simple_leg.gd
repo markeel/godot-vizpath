@@ -8,9 +8,6 @@ var _width : float
 var _bend_lip : float
 var _bend : VizBend
 
-var tri_mat : Material = load("res://example/common/materials/white.tres")
-var bend_mat : Material = load("res://example/common/materials/red.tres")
-
 const MIN_SEGMENT_LENGTH=0.01
 const EPSILON=0.00001
 

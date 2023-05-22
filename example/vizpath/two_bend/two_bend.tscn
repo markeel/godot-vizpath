@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://addons/vizpath/visualized_path.gd" id="1_3gjiw"]
 [ext_resource type="Script" path="res://example/two_bend/two_bend.gd" id="1_avpar"]
 [ext_resource type="Script" path="res://addons/vizpath/resources/spot.gd" id="2_xhjfb"]
-[ext_resource type="Material" uid="uid://bb6vecpbvsco2" path="res://example/common/materials/green.tres" id="4_dnqvd"]
-[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/common/materials/move.tres" id="5_cr2c7"]
+[ext_resource type="Material" uid="uid://bb6vecpbvsco2" path="res://example/vizpath/common/materials/green.tres" id="4_dnqvd"]
+[ext_resource type="Material" uid="uid://c4qytbc7juuoa" path="res://example/vizpath/common/materials/move.tres" id="5_cr2c7"]
 
 [sub_resource type="Resource" id="Resource_m5l7s"]
 script = ExtResource("2_xhjfb")
